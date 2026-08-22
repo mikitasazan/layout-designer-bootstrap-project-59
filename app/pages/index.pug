@@ -1,0 +1,31 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Название страницы
+    link(rel="stylesheet", href="styles/main.css")
+  body.bg-gray.vh-100.p-sm-4
+    .container-xxl.rounded-3.overflow-hidden.h-100
+      .row.h-100.bg-white
+        .col-12.col-sm-4.border-end.d-flex.flex-column
+          <!-- Блок Навбар -->
+          .row.bg-primary
+            .col-12
+              include components/navbar.pug
+          
+          <!-- Блок Контакты -->
+          .flex-grow-1.d-flex.flex-column.overflow-hidden
+            .bg-white
+              form.form-search.sticky-top.bg-white.px-4.pt-5
+                .h2.fw-bold.mb-4 Контакты
+                label.form-label.d-none(for="search")
+                input.form-control.shadow-none.border-0.border-bottom.p-4#search(type="text" placeholder=`Поиск по контактам`) 
+            
+            include components/contacts.pug
+
+        .col-8.d-none.d-sm-block
+          .h-100.d-flex.flex-column.justify-content-center.align-items-center
+            img.rounded-circle.mb-3(src='assets/images/avatar_1.jpg' width="200" height="200")
+            h6.lh-base.fw-bold.m-0 Привет, Кодовёнок
+            p.small.text-muted.m-0 Выбери чат, чтобы начать общаться

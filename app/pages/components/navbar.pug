@@ -1,0 +1,39 @@
+// Десктопная вервия
+nav.navbar.navbar-expand.d-none.d-sm-flex.justify-content-between.bg-primary.px-3.py-4
+  svg.svg-logo(width="25" height="40")
+    use(xlink:href="assets/icons/sprite.svg#logo")
+
+  nav.navbar-nav.flex-row.flex-wrap.justify-content-around.gap-xl-3.gap-4
+    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#contacts")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#people")
+      p.item-text.d-xl-block.mb-0 Контакты
+
+    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#chats")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#chat")
+      p.item-text.d-xl-block.mb-0 Сообщения
+
+    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#profile")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#person")
+      p.item-text.d-xl-block.mb-0 Профиль
+
+
+// Мобильная версия
+nav.navbar.fixed-bottom.bg-primary.d-flex.d-sm-none.justify-content-around.py-3
+  svg.svg-logo(width="15" height="25")
+    use(xlink:href="assets/icons/sprite.svg#logo")
+
+  nav.navbar-nav.flex-row.flex-wrap.justify-content-around.gap-xl-5.gap-5
+    a.nav-link.link-light.px-2(href="#contacts")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#people")
+    
+    a.nav-link.link-light.px-2(href="#chats")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#chat")
+    
+    a.nav-link.link-light.px-2(href="#profile")
+      svg(width="25" height="25")
+        use(xlink:href="assets/icons/sprite.svg#person")

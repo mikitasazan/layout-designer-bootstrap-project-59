@@ -1,0 +1,29 @@
+@import '../utilities/mixins';
+
+.contacts-container {
+  position: relative;
+}
+
+.contacts-content {
+  @include hide-scrollbar;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.contact-card {  
+  &:hover {
+    background-color: var(--bs-primary);
+  
+    h6 {
+      color: var(--bs-light);
+    }
+    
+    p {
+      color: var(--bs-gray-300);
+    }
+  }
+}
