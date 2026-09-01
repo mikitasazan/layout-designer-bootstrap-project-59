@@ -1,0 +1,22 @@
+.message-bubble {
+  max-width: 75%;
+  border-radius: 1rem;
+}
+
+.message-bubble--incoming {
+  background-color: var(--bs-gray-100);
+}
+
+.message-bubble--outgoing {
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.message-time {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.message-bubble--outgoing .message-time {
+  border-top-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+}

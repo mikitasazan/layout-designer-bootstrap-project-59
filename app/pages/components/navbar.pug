@@ -1,39 +1,25 @@
-// Десктопная вервия
-nav.navbar.navbar-expand.d-none.d-sm-flex.justify-content-between.bg-primary.px-3.py-4
-  svg.svg-logo(width="25" height="40")
-    use(xlink:href="assets/icons/sprite.svg#logo")
+mixin app-navbar(showCurrentChatTab)
+  nav.navbar.navbar-expand.app-navbar.justify-content-between.bg-primary.px-3.py-3.py-sm-4
+    svg.svg-logo(width="25" height="40")
+      use(xlink:href="assets/icons/sprite.svg#logo")
 
-  nav.navbar-nav.flex-row.flex-wrap.justify-content-around.gap-xl-3.gap-4
-    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#contacts")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#people")
-      p.item-text.d-xl-block.mb-0 Контакты
+    nav.navbar-nav.flex-row.flex-wrap.justify-content-around.gap-5.gap-sm-4.gap-xl-2
+      if showCurrentChatTab
+        a.nav-link.link-light.d-flex.align-items-center.gap-1.px-1.d-sm-none#current-chat-tab(href="#current-chat")
+          svg(width="25" height="25")
+            use(xlink:href="assets/icons/sprite.svg#chat-left-text")
 
-    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#chats")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#chat")
-      p.item-text.d-xl-block.mb-0 Сообщения
+      a.nav-link.link-light.d-flex.align-items-center.gap-1.px-1#contacts-tab(href="#contacts")
+        svg(width="25" height="25")
+          use(xlink:href="assets/icons/sprite.svg#people")
+        p.item-text.d-none.d-xl-block.mb-0 Контакты
 
-    a.nav-link.link-light.d-flex.align-items-center.gap-2.px-2(href="#profile")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#person")
-      p.item-text.d-xl-block.mb-0 Профиль
+      a.nav-link.link-light.d-flex.align-items-center.gap-1.px-1#chats-tab(href="#chats")
+        svg(width="25" height="25")
+          use(xlink:href="assets/icons/sprite.svg#chat")
+        p.item-text.d-none.d-xl-block.mb-0 Сообщения
 
-
-// Мобильная версия
-nav.navbar.fixed-bottom.bg-primary.d-flex.d-sm-none.justify-content-around.py-3
-  svg.svg-logo(width="15" height="25")
-    use(xlink:href="assets/icons/sprite.svg#logo")
-
-  nav.navbar-nav.flex-row.flex-wrap.justify-content-around.gap-xl-5.gap-5
-    a.nav-link.link-light.px-2(href="#contacts")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#people")
-    
-    a.nav-link.link-light.px-2(href="#chats")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#chat")
-    
-    a.nav-link.link-light.px-2(href="#profile")
-      svg(width="25" height="25")
-        use(xlink:href="assets/icons/sprite.svg#person")
+      a.nav-link.link-light.d-flex.align-items-center.gap-1.px-1#profile-tab(href="#profile")
+        svg(width="25" height="25")
+          use(xlink:href="assets/icons/sprite.svg#person")
+        p.item-text.d-none.d-xl-block.mb-0 Профиль

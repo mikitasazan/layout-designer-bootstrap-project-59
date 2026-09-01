@@ -1,3 +1,67 @@
 .svg-logo {
   filter: invert(1);
 }
+
+.tab-pane {
+  display: none;
+  flex-direction: column;
+}
+
+.tab-pane.is-active {
+  display: flex;
+}
+
+.app-navbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+@include media-breakpoint-up(sm) {
+  .app-navbar {
+    position: static;
+  }
+}
+
+#current-chat {
+  display: none !important;
+}
+
+#current-chat.is-active {
+  display: flex !important;
+}
+
+@include media-breakpoint-up(sm) {
+  #current-chat {
+    display: flex !important;
+  }
+}
+
+#chat-list-pane.is-hidden {
+  display: none !important;
+}
+
+@include media-breakpoint-up(sm) {
+  #chat-list-pane.is-hidden {
+    display: flex !important;
+  }
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+}
+
+// На мобильном #app-navbar зафиксирован снизу и перекрывает поле ввода —
+// резервируем под него место, чтобы поле оставалось видимым и кликабельным.
+.chat-input-bar {
+  padding-bottom: calc(1rem + 80px) !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .chat-input-bar {
+    padding-bottom: 1rem !important;
+  }
+}

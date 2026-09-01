@@ -1,3 +1,5 @@
+include components/navbar.pug
+
 doctype html
 html(lang="ru")
   head
@@ -8,24 +10,44 @@ html(lang="ru")
   body.bg-gray.vh-100.p-sm-4
     .container-xxl.rounded-3.overflow-hidden.h-100
       .row.h-100.bg-white
-        .col-12.col-sm-4.border-end.d-flex.flex-column
+        .col-12.col-sm-4.border-end.d-flex.flex-column.h-100
           <!-- Блок Навбар -->
           .row.bg-primary
             .col-12
-              include components/navbar.pug
-          
-          <!-- Блок Контакты -->
-          .flex-grow-1.d-flex.flex-column.overflow-hidden
+              +app-navbar(false)
+
+          <!-- Блок Контакты / Чаты / Профиль -->
+          #contacts.tab-pane.is-active.flex-grow-1.overflow-hidden
             .bg-white
               form.form-search.sticky-top.bg-white.px-4.pt-5
                 .h2.fw-bold.mb-4 Контакты
                 label.form-label.d-none(for="search")
-                input.form-control.shadow-none.border-0.border-bottom.p-4#search(type="text" placeholder=`Поиск по контактам`) 
-            
+                input.form-control.shadow-none.border-0.border-bottom.p-4#search(type="text" placeholder="Поиск по контактам")
+
             include components/contacts.pug
+
+          #chats.tab-pane.flex-grow-1.overflow-hidden
+            .bg-white
+              form.form-search.sticky-top.bg-white.px-4.pt-5
+                .h2.fw-bold.mb-4 Чаты
+                label.form-label.d-none(for="search-chats")
+                input.form-control.shadow-none.border-0.border-bottom.p-4#search-chats(type="text" placeholder="Поиск по сообщениям")
+
+            include components/chat-list.pug
+
+          #profile.tab-pane.flex-grow-1.overflow-hidden
+            .bg-white
+              form.form-search.sticky-top.bg-white.px-4.pt-5
+                .h2.fw-bold.mb-4 Профиль
+                label.form-label.d-none(for="search-profile")
+                input.form-control.shadow-none.border-0.border-bottom.p-4#search-profile(type="text" placeholder="Поиск по сообщениям")
+
+            include components/profile.pug
 
         .col-8.d-none.d-sm-block
           .h-100.d-flex.flex-column.justify-content-center.align-items-center
-            img.rounded-circle.mb-3(src='assets/images/avatar_1.jpg' width="200" height="200")
+            img.rounded-circle.mb-3(src="assets/images/avatar_1.jpg" width="200" height="200" alt="Кодовёнок")
             h6.lh-base.fw-bold.m-0 Привет, Кодовёнок
             p.small.text-muted.m-0 Выбери чат, чтобы начать общаться
+
+    script(src="scripts/main.js")

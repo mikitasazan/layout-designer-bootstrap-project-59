@@ -1,0 +1,92 @@
+include components/navbar.pug
+
+-
+  var dialog = [
+    {
+      type: "incoming",
+      text: "Да, я уже вышел и минут через 20-30 буду у тебя. Поеду на трамвае и потом в магазин. Тебе что-то захватить?",
+      time: "8 минут назад"
+    },
+    {
+      type: "outgoing",
+      text: "Захвати мне колы и пару печенек. Как-то очень сладкого хочется, а в магазин идти лень",
+      time: "5 минут назад"
+    },
+    {
+      type: "incoming",
+      text: "Лады",
+      time: "5 минут назад"
+    },
+    {
+      type: "outgoing",
+      text: "А, слушай, купи мне ещё Macbook Pro. А то хочется работать в Хекслете, а там это условие",
+      time: "3 минут назад"
+    }
+  ]
+
+mixin message-incoming(text, time)
+  .d-flex.gap-3.mb-4
+    img.rounded-circle.flex-shrink-0(src="assets/images/avatar_4.jpg" width="40" height="40" alt="Вениамин Редакторович")
+    .message-bubble.message-bubble--incoming.p-3
+      h6.small.fw-bold.mb-1 Вениамин Редакторович
+      p.mb-2= text
+      p.small.text-muted.mb-0.pt-2.message-time= time
+
+mixin message-outgoing(text, time)
+  .d-flex.justify-content-end.mb-4
+    .message-bubble.message-bubble--outgoing.p-3
+      p.mb-2= text
+      p.small.mb-0.pt-2.message-time= time
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Мессенджер — Диалог
+    link(rel="stylesheet", href="styles/main.css")
+  body.bg-gray.vh-100.p-sm-4
+    .container-xxl.rounded-3.overflow-hidden.h-100
+      .row.h-100.bg-white
+        .col-12.col-sm-4.border-end.d-flex.flex-column
+          <!-- Блок Навбар (не скрывается вместе со списком чатов) -->
+          .row.bg-primary
+            .col-12
+              +app-navbar(true)
+
+          <!-- Блок Чаты -->
+          #chat-list-pane.flex-grow-1.d-flex.flex-column.overflow-hidden
+            .bg-white
+              form.form-search.sticky-top.bg-white.px-4.pt-5
+                .h2.fw-bold.mb-4 Чаты
+                label.form-label.d-none(for="search-chats")
+                input.form-control.shadow-none.border-0.border-bottom.p-4#search-chats(type="text" placeholder="Поиск по сообщениям")
+
+            include components/chat-list.pug
+
+        #current-chat.col-12.col-sm-8.d-flex.flex-column.h-100
+          <!-- Заголовок диалога -->
+          .d-flex.align-items-center.gap-3.border-bottom.px-4.py-4
+            img.rounded-circle(src="assets/images/avatar_4.jpg" width="50" height="50" alt="Вениамин Редакторович")
+            div
+              h6.mb-0.fw-bold Вениамин Редакторович
+              p.small.text-muted.mb-0 Онлайн
+
+          <!-- Лента сообщений -->
+          .flex-grow-1.overflow-y-auto.px-4.py-4
+            each item in dialog
+              if item.type === "incoming"
+                +message-incoming(item.text, item.time)
+              else
+                +message-outgoing(item.text, item.time)
+
+          <!-- Поле ввода -->
+          .border-top.px-4.py-3.chat-input-bar
+            form.d-flex.align-items-center.gap-2
+              label.form-label.d-none(for="message-input") Сообщение
+              input.form-control.rounded-pill.border-0.bg-gray.shadow-none#message-input(type="text" placeholder="Напишите сообщение…")
+              button.btn.btn-primary.rounded-circle.send-button.d-flex.align-items-center.justify-content-center.flex-shrink-0(type="submit" aria-label="Отправить")
+                svg(width="18" height="18")
+                  use(xlink:href="assets/icons/sprite.svg#cursor")
+
+    script(src="scripts/main.js")

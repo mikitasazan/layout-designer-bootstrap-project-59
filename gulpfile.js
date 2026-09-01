@@ -54,5 +54,12 @@ const buildJpg = () => {
     .pipe(dest('build/assets/images/'))
 };
 
+const buildJs = () => {
+  console.log('Копирование JS...');
+
+  return src('app/scripts/*.js')
+    .pipe(dest('build/scripts/'))
+};
+
 exports.server = browserSyncJob
-exports.build = parallel(buildSass, buildPug, buildSvgSprite, buildJpg)
+exports.build = parallel(buildSass, buildPug, buildSvgSprite, buildJpg, buildJs)
