@@ -39,20 +39,20 @@ const config = {
   },
 };
 
-// const buildSvgSprite = () => {
-//   console.log('Компиляция SVG-спрайта');
+const buildSvgSprite = () => {
+  console.log('Компиляция SVG-спрайта');
 
-//   return src('app/assets/icons/*.svg')
-//     .pipe(svgSprite(config))
-//     .pipe(dest('build/assets/icons/'));
-// }
+  return src('app/assets/icons/*.svg')
+    .pipe(svgSprite(config))
+    .pipe(dest('build/assets/icons/'));
+}
 
-// const buildJpg = () => {
-//   console.log('Копирование JPG...');
-  
-//   return src('app/assets/images/*.jpg')
-//     .pipe(dest('build/assets/images/'))
-// };
+const buildJpg = () => {
+  console.log('Копирование JPG...');
+
+  return src('app/assets/images/*.jpg', { encoding: false })
+    .pipe(dest('build/assets/images/'))
+};
 
 exports.server = browserSyncJob
-exports.build = parallel(buildSass, buildPug)
+exports.build = parallel(buildSass, buildPug, buildSvgSprite, buildJpg)
