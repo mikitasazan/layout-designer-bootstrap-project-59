@@ -12081,7 +12081,6 @@ textarea.form-control-lg {
 }
 
 .message-bubble {
-  max-width: calc(100% - 3rem);
   border-radius: 1rem;
 }
 
