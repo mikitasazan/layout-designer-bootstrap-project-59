@@ -1,6 +1,12 @@
 .message-bubble {
-  max-width: 60%;
+  max-width: calc(100% - 3rem);
   border-radius: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .message-bubble {
+    max-width: 60%;
+  }
 }
 
 .message-bubble--incoming {
