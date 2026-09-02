@@ -73,7 +73,7 @@ html(lang="ru")
               p.small.text-muted.mb-0 Онлайн
 
           <!-- Лента сообщений -->
-          .flex-grow-1.overflow-y-auto.px-4.py-4
+          .flex-grow-1.overflow-y-auto.px-4.pt-5.pb-4
             each item in dialog
               if item.type === "incoming"
                 +message-incoming(item.text, item.time)
