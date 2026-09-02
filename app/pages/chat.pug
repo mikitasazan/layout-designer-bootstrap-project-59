@@ -27,7 +27,7 @@ include components/navbar.pug
 mixin message-incoming(text, time)
   .d-flex.gap-3.mb-4
     img.rounded-circle.flex-shrink-0.d-none.d-sm-block(src="assets/images/avatar_4.jpg" width="40" height="40" alt="Вениамин Редакторович")
-    .message-bubble.message-bubble--incoming.p-3
+    .message-bubble.message-bubble--incoming.p-4.p-sm-3
       h6.small.fw-bold.mb-1 Вениамин Редакторович
       p.mb-2= text
       p.small.text-muted.mb-0.pt-2.message-time= time

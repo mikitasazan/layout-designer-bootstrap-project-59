@@ -12087,7 +12087,13 @@ textarea.form-control-lg {
 
 @media (max-width: 575.98px) {
   .message-bubble--incoming {
+    max-width: 94%;
     margin-left: 10px;
+  }
+  .message-bubble--outgoing {
+    max-width: 94%;
+    padding: 20px !important;
+    margin-right: 13px;
   }
   .chat-header {
     padding-bottom: 18px !important;

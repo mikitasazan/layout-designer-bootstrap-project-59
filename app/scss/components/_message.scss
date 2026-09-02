@@ -5,7 +5,14 @@
 
 @include media-breakpoint-down(sm) {
   .message-bubble--incoming {
+    max-width: 94%;
     margin-left: 10px;
+  }
+
+  .message-bubble--outgoing {
+    max-width: 94%;
+    padding: 20px !important;
+    margin-right: 13px;
   }
 
   .chat-header {
