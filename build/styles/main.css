@@ -12089,6 +12089,9 @@ textarea.form-control-lg {
   .message-bubble--incoming {
     margin-left: 10px;
   }
+  .chat-header {
+    padding-bottom: 18px !important;
+  }
 }
 @media (min-width: 576px) {
   .message-bubble {

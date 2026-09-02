@@ -7,6 +7,10 @@
   .message-bubble--incoming {
     margin-left: 10px;
   }
+
+  .chat-header {
+    padding-bottom: 18px !important;
+  }
 }
 
 @include media-breakpoint-up(sm) {
